@@ -19,16 +19,25 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li>
-                            <a href=""><i class="fa fa-fw fa-user"></i>View Profile</a>
-                        </li>
-                        <li>
-                            <a href=""><i class="fa fa-fw fa-lock"></i> Change Password</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href=""><i class="fa fa-fw fa-power-off"></i> Sign Out</a>
-                        </li>
+                       <li>
+                        <a ui-sref="app.account">
+                            <i class="fa fa-user"></i>
+                            Account
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click="vm.update_password()">
+                            <i class="fa fa-lock"></i>
+                            Change Password
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a ng-click="vm.logout()">
+                            <i class="fa fa-power-off"></i>
+                            Logout
+                        </a>
+                     </li>
                     </ul>
                 </li>
             </ul>

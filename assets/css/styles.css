@@ -280,12 +280,9 @@ a {
 }
 
 @media(min-width:768px) {
-    #wrapper {
-        padding-left: 225px;
-    }
-
     .page-wrapper {
         padding: 10px;
+        padding-left: 225px;
     }
 }
 @media(max-width: 767px){
