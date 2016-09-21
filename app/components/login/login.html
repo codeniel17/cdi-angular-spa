@@ -1,66 +1,46 @@
-<div class="jumbotron wrap">
-    <div class="login-container" >
-        <p class="white-text uppercase" align="center">{{ vm.header }}</p>
-        <div class="account-wall top-margin map"  >  
-                <div class="" align="center">
-                    <div class="btn-circle white-text" >
-                        <i class="fa fa-user  fa-4x" ng-if = "!vm.isPassword" ></i>
-                        <i class="fa fa-envelope fa-3x padding-top-sm" ng-if = "vm.isPassword"></i>
-                    </div>                      
-                </div>        
-                <form class="form-signin clearfix top-margin-sm" align="left"
-                      ng-submit="vm.login(user)"
-                      name="formlogin" >
-                    <div class="col-md-12">
-                        <input  class="md-input" 
-                                type="text"
-                                name="userEmail"
-                                ng-model="user.email" 
-                                required=""
-                                ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" >
-                        <label >Email</label>
-
-                        <span   class="text-danger small"
-                                ng-if="formlogin.userEmail.$error.pattern == true">
-                            Invalid email                       
-                        </span>
-                    </div>
-                    <div uib-collapse="isPassword">
-                        <div class="col-md-12 top-margin-sm" >                          
-                            <input  class="md-input" 
-                                    type="password"
-                                    ng-disabled="isPassword" 
-                                    ng-model="user.password" 
-                                    required="">
-                            <label >Password</label>
-                        </div>
-                    </div>
-                    <div class="col-md-12 top-margin-sm"
-                          ng-if="!vm.admin">
-                        <input  class="md-input " 
-                                type="text"
-                                ng-model="user.name_space"
-                                required="">
-                        <label >Namespace</label>
-                    </div>
-                    <button class="btn-submit btn top-margin uppercase" 
-                            ng-disabled="disable">
-                            <span ng-if="disable">                                  
-                                <i class="fa fa-circle-o-notch fa-spin"></i>
-                                 {{ vm.loading }}
-                            </span>
-                            <span ng-if="!vm.disable">{{ vm.log }}</span>
-                    </button>
-    
-                </form>
-          </div>
-            <br>
-                <div class="" align="center">
-                    <a  class="teal-text" 
-                        ng-click = "vm.forgot()" >
-                        Forgot Password
-                    </a>
-                    <br>
-                </div>
+<div class="wrapper">
+    <p  class="text-uppercase lead" 
+        align="center">
+        {{ vm.header }}
+    </p>    
+    <form class="form-signin"
+          align="left"
+          ng-submit="vm.login(user)"
+          name="formlogin"> 
+    <div class="" align="center">
+        <div class="white-text" >
+            <i class="fa fa-user  fa-4x"  ></i>
+        </div>                      
+    </div>    
+    <br> 
+    <div class="col-md-12">
+        <input  class="form-control" 
+                type="text"
+                name="userEmail"
+                ng-model="user.email" 
+                required=""
+                ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" >
+         <span   class="text-danger small"
+                ng-if="formlogin.userEmail.$error.pattern == true">
+            Invalid email                       
+        </span>
+        <label class="md-label">Email</label>
     </div>
+    <div class="col-md-12">
+        <input  class="form-control" 
+                type="password"
+                ng-disabled="isPassword" 
+                ng-model="user.password" 
+                required="">
+        <label >Password</label>
+    </div>
+        <button class="btn btn-block btn-lg btn-primary text-uppercase" 
+                ng-disabled="disable">
+                <span ng-if="disable">                                  
+                    <i class="fa fa-circle-o-notch fa-spin"></i>
+                     {{ vm.loading }}
+                </span>
+                <span ng-if="!vm.disable">{{ vm.log }}</span>
+        </button>
+    </form>
 </div>
