@@ -1,24 +1,23 @@
-<button class = "show-sidebar-sm visible-xs collapse-btn navbar-toggle"  
+<button class = "visible-xs collapse-btn navbar-toggle"  
         ng-init = "navCollapsed = true" 
         ng-click = "navCollapsed = !navCollapsed" >
         <span>
-            <i class = "fa fa-bars" ></i>
+            <i class = "fa fa-bars fa-lg" ></i>
         </span>
 </button>
-
-<div class = "sidebar" role = "navigation">
-    <div ng-class = "!navCollapsed && 'in animated fadeInUp'" 
-         class    = " navbar-default sidebar-nav navbar-collapse collapse ">
-        <ul class="nav" id="side-menu">
-        <br>
-            <li ui-sref-active = "active">
-                <a href="" ui-sref="app.dashboard">
-                    <i class="fa fa-tachometer" aria-hidden="true"></i>
-                    Dashboard
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    <!-- /.sidebar-collapse -->
+<div class    = "sidebar-nav navbar-collapse collapse " 
+     ng-class = "!navCollapsed && 'in'">
+    <ul class="nav navbar-nav side-nav">
+        <li ui-sref-active="active">
+            <a href="" ui-sref="app.dashboard">
+                <i class="fa fa-fw fa-dashboard"></i>
+                 Dashboard</a>
+        </li>
+        <li ui-sref-active="active">
+            <a href="">
+                <i class="fa fa-fw fa-bar-chart-o"></i> 
+                Charts</a>
+        </li>
+        
+    </ul>
 </div>
