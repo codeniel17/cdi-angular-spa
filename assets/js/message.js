@@ -7,7 +7,7 @@
 	error 		 	 : 'Something went wrong. Unable to ',
 	updateSuccess    : 'Successfully updated ',
 	assignedSuccess	 : ' has been assigned to ',
-	unSuccess 	 	 : ' has been unassigned',
+	unassignedSuccess: ' has been unassigned',
 	decommission 	 : 'decommission ',
 	assign 			 : 'assign', 
 	unassign 		 : 'unassign ',
