@@ -1,10 +1,13 @@
 <div class="modal-header bg-primary">
     <span class="text-uppercase lead">
         {{ vm.content.header }}
-        <a class="fa fa-times pull-right text-white"
-            ng-click="vm.cancel()">
-        </a>
+       <button  type="button" 
+                class="close"
+                ng-click="vm.cancel()" 
+                data-dismiss="modal" 
+                aria-hidden="true">&times;</button>
     </span>
+
 </div>
  
 <div class="modal-body clearfix">
