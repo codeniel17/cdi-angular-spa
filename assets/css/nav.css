@@ -59,7 +59,11 @@
 .side-nav>li>ul>li>a:hover {
     color: #fff;
 }
-
+.side-nav ul .active, 
+.side-nav ul .active a, 
+.side-nav ul .active a:hover{
+    background: rgba(114, 114, 114, 0.12);
+}
 .huge {
     font-size: 40px;
 }
@@ -88,7 +92,7 @@
     .side-nav li a:hover,
     .side-nav li a:focus {
         outline: none;
-        background-color: rgba(0, 0, 0, 0.15) !important;
+        background: rgba(114, 114, 114, 0.12) !important;
     }
 }
 @media(max-width: 767px) {
