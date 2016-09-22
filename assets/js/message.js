@@ -10,6 +10,6 @@
 	unSuccess 	 	 : ' has been unassigned',
 	decommission 	 : 'decommission ',
 	assign 			 : 'assign', 
-	unassign 		 : 'unassign '
+	unassign 		 : 'unassign ',
 	delete			 : 'delete',
 }

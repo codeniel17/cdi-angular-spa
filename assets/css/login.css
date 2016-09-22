@@ -6,12 +6,12 @@
 .form-signin {
     max-width: 400px;
     padding: 15px 35px 45px;
-    margin: 0 auto;
+    margin: 60px auto 10px;
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .form-signin input {
-	padding: 20px;
+	padding: 20px 8px;
 }
 .form-signin .col-md-12 {
 	padding: 5px;
