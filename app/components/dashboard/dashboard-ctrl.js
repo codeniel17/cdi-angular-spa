@@ -19,7 +19,7 @@
         		header:'Message',
         		message:'Hello World!'
         	}
-        	ModalService.message_modal(content);
+        	ModalService.confirm_modal(content);
         }
     }
 })();

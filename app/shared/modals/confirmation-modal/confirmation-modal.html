@@ -1,51 +1,22 @@
-<div class="modal-header">
-    <h5 class="white-text text-capitalize">
-        {{ vm.header }}
-        <a class="fa fa-times pull-right white-text"
-            ng-click="cancel()">
-         </a>
-    </h5>
+<div class="modal-header blue">
+    <span class="text-uppercase lead">
+        {{ vm.content.header }}
+        <a class="fa fa-times pull-right text-white"
+            ng-click="vm.cancel()">
+        </a>
+    </span>
 </div>
  
 <div class="modal-body">
     <i class="fa fa-question-circle fa-3x pull-left" 
         aria-hidden="true"></i>
-        {{ vm.content }}
-
-        <span ng-if="vm.header=='Unassign Driver'"
-              class="bold-text text-capitalize">
-            {{vm.data.RiderDetail.firstName}}  
-            {{vm.data.RiderDetail.lastName + '?'}}
-        </span>
-
-        <span  class="bold-text" 
-                ng-if="(vm.action == 'decommission' || 
-                        vm.action == 'suspend' || 
-                        vm.action == 'unsuspend') && vm.data.plateNumber">
-            {{vm.data.plateNumber + '?'}}
-        </span>
-
-        <span  class="bold-text" 
-                ng-if=" vm.action == 'unassign' && vm.data.Vehicle.plateNumber">
-            {{vm.data.Vehicle.plateNumber + '?'}}
-        </span>
-
-
-        <span   ng-if="vm.role=='subcon'"
-                class="text-capitalize bold-text">
-            {{vm.data.company + '?'}}
-        </span>
-        <span   class="text-capitalize bold-text" 
-                ng-if="vm.role!='subcon' && vm.role != 'vehicle'"> 
-            {{vm.data.firstName}}  {{vm.data.lastName + '?'}}
-        </span>
-    
+        {{ vm.content.message }}
     <div class="top-margin-sm" align="center">
         <button type="button" 
                 class="btn btn-sm btn-cancel" 
-                ng-click="cancel()" > Cancel </button>
+                ng-click="vm.cancel()" > Cancel </button>
         <button type="button"
-                class="btn btn-sm md-button white-text text-capitalize"
-                ng-click="approve()" > {{vm.btn_name}} </button>
+                class="btn btn-sm btn-primary text-capitalize"
+                ng-click="vm.approve()" > {{vm.btn_name || 'Ok'}} </button>
     </div>
 </div>

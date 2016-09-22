@@ -11,7 +11,7 @@
                                     $timeout, message, QueryService) {
         var vm     = this,
             ids    = message.keys;
-        vm.message = message; 
+        vm.content = message; 
         vm.data    = message.data;
 
         vm.approve = approve;
