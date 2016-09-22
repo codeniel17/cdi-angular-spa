@@ -1,8 +1,4 @@
 /*Login*/
-.wrapper {
-    margin-top: 80px;
-    margin-bottom: 80px;
-}
 .form-signin {
     max-width: 400px;
     padding: 15px 35px 45px;
@@ -64,7 +60,7 @@
 
 .materialize .form-control:focus, 
 .materialize .form-control:valid {
- box-shadow: none;
- outline: none;
- background-position: 0 0;
+	box-shadow: none;
+	outline: none;
+	background-position: 0 0;
 }
