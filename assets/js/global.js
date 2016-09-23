@@ -4,20 +4,20 @@
 */
 
 var GLOBAL = {
-    host: 'http:host',
+    host: 'https://jsonplaceholder.typicode.com',
     socket: 'http:socket',
-    host : function (ids) {
+    url : function (route) {
 		var query_string = '';
-		for (var key in ids) {
+		for (var key in route) {
 			var _id = '';
-			if (ids[key]) {
-				_id = '/' + ids[key];
+			if (route[key]) {
+				_id = '/' + route[key];
 			}
 			var new_key = '/' + key + _id;
 			var new_str = query_string + new_key;
 			query_string = new_str;
 		};
-		return host + query_string;
+		return GLOBAL.host + query_string;
 	},
 	header : function (token) {
 		if (token) {

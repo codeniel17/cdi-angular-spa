@@ -5,7 +5,8 @@
         .module('app', [
             'ui.router',
             'ngCookies',
-            'ui.bootstrap'
+            'ui.bootstrap',
+            'toastr'
         ])
         .config(router);
 

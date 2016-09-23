@@ -2,8 +2,31 @@
 <div class="col-md-12">
     Hello World!
 
+<div class="blue">
+    <p class="text-white">Hello World!</p>
+</div>
     <button class="btn btn-primary"
     		ng-click="vm.message_modal()">
     	Modal
     </button>
+    <div class="table-responsive">
+    	<table class="table table-bordered">
+    		<thead>
+    			<tr>
+    				<th>ID</th>
+    				<th>Name</th>
+    				<th>Username</th>
+    				<th>Company</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr ng-repeat = "user in vm.data">
+    				<td ng-bind="user.id"></td>
+    				<td ng-bind="user.name"></td>
+    				<td ng-bind="user.username"></td>
+    				<td ng-bind="user.company.name"></td>
+    			</tr>
+    		</tbody>
+    	</table>
+    </div>
 </div>

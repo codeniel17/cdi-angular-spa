@@ -17,11 +17,11 @@
         function query(method, data, token, params, hasFile, ids, nameSpace) {
             var request = { 
                 method  : method,
-                data    : global.clean_data(data),
-                url     : global.host(ids),
-                headers : global.header(token),
-                params  : global.query(params),
-                transformRequest : global.transform(hasFile)
+                data    : GLOBAL.clean_data(data),
+                url     : GLOBAL.url(ids),
+                headers : GLOBAL.header(token),
+                params  : GLOBAL.query(params),
+                transformRequest : GLOBAL.transform(hasFile)
             };
             if (hasFile) {
                 request.headers['Content-Type'] = undefined;
@@ -29,7 +29,7 @@
             if (nameSpace) {
                 request.headers['Client-Application'] = nameSpace;
             }
-            var new_req = global.clean_object(request); 
+            var new_req = GLOBAL.clean_object(request); 
             
             return $http(new_req);
         }
