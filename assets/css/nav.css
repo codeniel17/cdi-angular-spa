@@ -45,7 +45,7 @@
 .side-nav>li>ul {
     padding: 0;
 }
-.side-nav li {
+.side-nav li:first-child {
     margin-top: 20px;
 }
 .side-nav>li>ul>li>a {
