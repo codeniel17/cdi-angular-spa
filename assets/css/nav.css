@@ -27,8 +27,9 @@
     padding: 10px;
 }
 .navbar{
-    min-height: 50px;
-    margin-bottom: 20px;
+    height: 50px !important;
+    min-height: 50px !important;
+    margin-bottom: 0px;
     border: 1px solid transparent;
 }
 .nav .open>a, 
