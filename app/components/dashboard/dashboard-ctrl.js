@@ -24,18 +24,26 @@
         }
 
         (function getPost () {
-            var params = {}
-            var route = {
-                users : ""
-            }
+            var req = {
+                method  : 'GET', // POST, GET, PUT, DELETE
+                body    : false, // data to be sent
+                token   : false, // if required
+                params  : false, // or { users:1 } will result &users=1
+                hasFile : false, // true if the body has file
+                cache   : true, // false if not needed
+                route   : { users:'' } // will result /users
+            };
+
            /* https://jsonplaceholder.typicode.com/users*/
-           QueryService.query('GET', false, false, false, false, route)
-           .then(function (response) {
-                vm.data = response.data;
-                // logger.success('',response, MESSAGE.success);
-           }, function (err) {
-                logger.error(MESSAGE.error, err, '');
-           })
+            QueryService
+                .query(req)
+                .then(function (response) {
+                    vm.data = response.data;
+                    // logger.success('',response, MESSAGE.success);
+                }, function (err) {
+                    logger.error(MESSAGE.error, err, '');
+                })
+
         })()
     }
 })();

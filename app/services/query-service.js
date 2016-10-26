@@ -14,23 +14,24 @@
 
         return service;
 
-        function query(method, data, token, params, hasFile, ids, nameSpace) {
+        function query(req, nameSpace) {
             var request = { 
-                method  : method,
-                data    : GLOBAL.clean_data(data),
-                url     : GLOBAL.url(ids),
-                headers : GLOBAL.header(token),
-                params  : GLOBAL.query(params),
-                transformRequest : GLOBAL.transform(hasFile)
+                method  : req.method,
+                data    : GLOBAL.clean_data(req.body),
+                url     : GLOBAL.set_url(req.route),
+                headers : GLOBAL.header(req.token),
+                params  : GLOBAL.parameters(req.params),
+                cache   : req.cache,
+                transformRequest : GLOBAL.transform(req.hasFile)
             };
-            if (hasFile) {
+            if (req.hasFile) {
                 request.headers['Content-Type'] = undefined;
             }
-            if (nameSpace) {
+            if (req.nameSpace) {
                 request.headers['Client-Application'] = nameSpace;
             }
             var new_req = GLOBAL.clean_object(request); 
-            
+            // console.log(new_req);
             return $http(new_req);
         }
     }
