@@ -6,23 +6,23 @@
 var GLOBAL = {
     host: 'https://jsonplaceholder.typicode.com',
     socket: 'http:socket',
-    url : function (route) {
-		var query_string = '';
-		for (var key in route) {
+    set_url : function (ids) {
+		var q_string = '';
+		for (var key in ids) {
 			var _id = '';
-			if (route[key]) {
-				_id = '/' + route[key];
+			if (ids[key]) {
+				_id = '/' + ids[key];
 			}
 			var new_key = '/' + key + _id;
-			var new_str = query_string + new_key;
-			query_string = new_str;
-		};
-		return GLOBAL.host + query_string;
+			var new_str = q_string + new_key;
+			q_string 	= new_str;
+		}; 
+		return this.host + q_string;
 	},
 	header : function (token) {
 		if (token) {
 			return {
-				'Access-Token' : token
+				'x-access-token' : token
 			};
 		} else {
 			return false;
@@ -34,33 +34,25 @@ var GLOBAL = {
 		else
 			return false;
 	},
-	user : function (cookies, state, stateName) {
+	user : function (cookies, state) {
 		var user = cookies.getObject('user');
 		if (user) {
 			return user; 
-		} else if (stateName == 'admin-login' || stateName == 'login') {
-			state.go(stateName);
 		} else {
 			state.go('login');
 		}
 	},
-	query : function (params) {
+	parameters : function (params) {
 		if (params) 
 			return params;
 		else
 			return false;
 	},
-	check_file : function (data, callback) {
-		var fd = new FormData();
-		if (data.photo || data.logo || data.license || data.police_clearance || 
-			data.nbi_clearance || data.vehicle_photo) {
-			for (var key in data) {
-				fd.append(key, data[key]);
-			};
-			callback(fd, true);
-		} else {
-			callback(data, false);
-		}
+	clean_data : function (data) {
+		if (!data) 
+			return false;
+		else
+			return data;
 	},
 	clean_object : function (object) {
 		for(var key in object) {
@@ -69,13 +61,5 @@ var GLOBAL = {
 			}
 		};
 		return object;
-	},
-	clean_data : function (data) {
-		if (!data) {
-			return false;
-		} else {
-			return data;
-		}
-	},
-
+	}
 };
