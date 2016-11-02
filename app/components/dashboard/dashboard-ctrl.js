@@ -25,8 +25,12 @@
                 message:'Are you sure you want to perform this action?'
             })
             .then( function (response) {
-                logger.success(response);
-                // getPost()
+                if (response) {
+                    logger.success(response);
+                    // getPost()
+                } else {
+                    logger.info(response);
+                }
             });
 
         }
