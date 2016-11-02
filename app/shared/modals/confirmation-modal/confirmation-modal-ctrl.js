@@ -6,23 +6,25 @@
         .controller('ConfirmationModalCtrl', ConfirmationModalCtrl);
 
     ConfirmationModalCtrl.$inject = ['$scope', '$cookies', '$uibModalInstance',
-                                     '$timeout', 'message', 'QueryService'];
+                                     '$timeout', 'Data', 'QueryService'];
     function ConfirmationModalCtrl ($scope, $cookies, $uibModalInstance, 
-                                    $timeout, message, QueryService) {
-        var vm     = this,
-            ids    = message.keys;
-        vm.content = message; 
-        vm.data    = message.data;
+                                    $timeout, Data, QueryService) {
+        var vm      = this;
 
-        vm.approve = approve;
-        vm.cancel  = cancel;
+        // variables
+        vm.header   = Data.header;
+        vm.message  = Data.message; 
+
+        // methods
+        vm.approve  = approve;
+        vm.cancel   = cancel;
 
         function approve () {
-
+            $uibModalInstance.close(true);
         }
 
         function cancel () {
-            $uibModalInstance.close();
+            $uibModalInstance.close(false);
         }
 
     }

@@ -5,22 +5,30 @@
         .module('app')
         .controller('DashboardCtrl', DashboardCtrl);
 
-    DashboardCtrl.$inject = ['$scope', '$state','ModalService', 'QueryService','logger'];
+    DashboardCtrl.$inject = ['$scope', '$state', 'ModalService', 'QueryService', 'logger'];
 
-    function DashboardCtrl ($scope, $state, ModalService, QueryService,logger) {
-        var vm = this;
+    function DashboardCtrl ($scope, $state, ModalService, QueryService, logger) {
+        var vm                  = this;
         
-        vm.titleHeader = 'Dashboard';
-        vm.message_modal = message_modal;
-        vm.data = {};
+        // variables
+        vm.titleHeader          = 'Dashboard'; 
+        vm.data                 = {};
+
+        // methods
+        vm.handleButtonClick    = handleButtonClick;
 
         
-        function message_modal () {
-        	var content =  {
-        		header:'Message',
-        		message:'Hello World!'
-        	}
-        	ModalService.confirm_modal(content);
+        function handleButtonClick () { 
+
+        	ModalService.confirm_modal({
+                header:'Test Confirmation Header',
+                message:'Are you sure you want to perform this action?'
+            })
+            .then( function (response) {
+                logger.success(response);
+                // getPost()
+            });
+
         }
 
         (function getPost () {

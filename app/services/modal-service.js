@@ -68,7 +68,7 @@
 
         }
 
-        function confirm_modal (msg, callback) {
+        function confirm_modal (object, callback) {
             var modalInstance = $uibModal.open({
                 'templateUrl'   : 'app/shared/modals/confirmation-modal/confirmation-modal.html',
                 'controller'    : 'ConfirmationModalCtrl',
@@ -76,16 +76,13 @@
                 'size'          : 'sm',
                 'backdrop'      : false,
                 'resolve'       : {
-                    message     : function () {
-                        return msg;
+                    Data     : function () {
+                        return object;
                     }
                 }
             })
-            .result.then( function (data) {
-                if (data) {
-                    callback(data);
-                };
-            });
+            
+            return modalInstance.result;
         }
 
         function email_modal (data, callback) {
