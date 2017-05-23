@@ -47,7 +47,8 @@
     padding: 0;
 }
 .side-nav li:first-child {
-    margin-top: 20px;
+    /*margin-top: 20px;*/
+    margin-top: 0px;
 }
 .side-nav>li>ul>li>a {
     display: block;
@@ -56,9 +57,9 @@
     color: #999;
 }
 
-.side-nav>li>ul>li>a:hover {
+/*.side-nav>li>ul>li>a:hover {
     color: #fff;
-}
+}*/
 .side-nav ul .active, 
 .side-nav ul .active a, 
 .side-nav ul .active a:hover{
