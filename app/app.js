@@ -5,14 +5,21 @@
         .module('app', [
             'ui.router',
             'ngCookies',
+            'ngFileUpload',
             'ui.bootstrap',
-            'toastr'
+            'ui.mask',
+            'angular.filter',
+            'ngMap',
+            'toastr',
+            'btford.socket-io',
+            'ngProgress' 
         ])
         .config(router);
 
 
-    function router ($stateProvider, $urlRouterProvider) {
+    function router ($stateProvider, $urlRouterProvider, $locationProvider) {
 
+        $locationProvider.hashPrefix('');
         $urlRouterProvider.otherwise('/login');
         $stateProvider
             .state('app', {
