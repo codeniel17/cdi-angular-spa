@@ -1,0 +1,36 @@
+<div class="modal-header bg-primary">
+    <span class="text-uppercase lead">{{ vm.titleHeader }}</span>
+    <button type="button" class="close" ng-click="vm.cancel()" data-dismiss="modal" aria-hidden="true">&times;</button>
+</div>
+<div class="modal-body top-margin-sm">
+    <form name="userForm">
+        <div class="clearfix">
+            <div class="col-md-12">
+
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input name="name" type="text" class="form-control" id="name" ng-model="vm.data.name" placeholder="Full Name" ng-required="true" />
+                    <span class="text-red font-10" ng-show="userForm.name.$invalid && vm.submitted">*Required</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input name="username" type="text" class="form-control" id="username" ng-model="vm.data.username" placeholder="Username" ng-required="true" />
+                    <span class="text-red font-10" ng-show="userForm.username.$invalid && vm.submitted">*Required</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company:</label>
+                    <input name="company" type="text" class="form-control" id="company" ng-model="vm.data.comp" placeholder="Company" ng-required="true" />
+                    <span class="text-red font-10" ng-show="userForm.company.$invalid && vm.submitted">*Required</span>
+                </div>
+
+            </div>
+        </div> 
+
+        <div class="text-center top-margin-sm clearfix">
+            <button type="button" class="btn btn-default" ng-disabled="vm.disable" ng-click="vm.cancel()">Cancel</button>
+            <button type="button" class="btn btn-primary" ng-disabled="vm.disable" ng-click="vm.submitted=true; userForm.$valid && vm.save(vm.data)" >Save &amp; Close</button>
+        </div>
+    </form>
+</div>

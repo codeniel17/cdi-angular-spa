@@ -41,48 +41,45 @@
             });
         }
 
-        function form_modal (form, type, modal, callback) {
+        function form_modal (request, modal, template, size) { 
+
             var modalInstance = $uibModal.open({
-                'templateUrl'   : 'app/shared/modals/tab-modal/tab-modal.html',
-                'controller'    : 'TabModalCtrl',
+                'templateUrl'   : template.url,
+                'controller'    : template.ctrl,
                 'controllerAs'  : 'vm',
-                'size'          : 'md',
-                'backdrop'      : false,
+                'size'          : (size) || 'md',
+                'backdrop'      : 'static',
                 'resolve'       : {
-                    form : function () {
-                        return form;
+                    Request : function () {
+                        return request;
                     },
-                    modal : function () {
+                    Modal : function () {
                         return modal;
-                    },
-                    type : function () {
-                        return type;
                     }
-                }
-            })
-            .result.then( function (data) {
-                if (data) {
-                    callback(data);
                 }
             });
 
+            return modalInstance.result;
+
         }
 
-        function confirm_modal (object, callback) {
-            var modalInstance = $uibModal.open({
+        function confirm_modal (data) { 
+
+            var modalInstance = $uibModal.open({ 
                 'templateUrl'   : 'app/shared/modals/confirmation-modal/confirmation-modal.html',
                 'controller'    : 'ConfirmationModalCtrl',
                 'controllerAs'  : 'vm',
                 'size'          : 'sm',
-                'backdrop'      : false,
-                'resolve'       : {
-                    Data     : function () {
-                        return object;
+                'backdrop'      : 'static',
+                'resolve'       : { 
+                    Data : function () {
+                        return data;
                     }
                 }
-            })
-            
+            });
+
             return modalInstance.result;
+
         }
 
         function email_modal (data, callback) {

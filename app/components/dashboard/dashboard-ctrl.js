@@ -16,7 +16,32 @@
 
         // methods
         vm.handleConfirm        = handleConfirm;
+        vm.handleForm           = handleForm;
 
+        function handleForm () {
+
+            var modal = { header: 'Form Modal', title: 'User' };
+            var request = {
+                method  : 'POST',
+                body    : {},
+                params  : false,
+                hasFile : false,
+                route   : { users:'' },
+                cache_string : ''
+            }; 
+            
+            formModal(request, modal, TPLS.users)
+                .then( function (response) { 
+
+                    if (response) {
+                        vm.data.unshift(response); 
+                    };
+
+                }, function (error) {
+                    logger.error(error.data.message);
+                });
+
+        }
         
         function handleConfirm () { 
 
@@ -55,6 +80,10 @@
 
         }
 
+        function formModal (request, modal, template, size) { 
+            return ModalService.form_modal(request, modal, template, size);
+        }
+
         function confirmation (content) {
             return ModalService.confirm_modal(content);
         }
@@ -74,7 +103,7 @@
             QueryService
                 .query(request)
                 .then(function (response) {
-                    console.log(response.data);
+                    console.log(response);
                     vm.data = response.data;
                     // logger.success('',response, MESSAGE.success);
                 }, function (err) {
