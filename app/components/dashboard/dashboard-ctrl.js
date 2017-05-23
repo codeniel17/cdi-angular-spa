@@ -15,41 +15,66 @@
         vm.data                 = {};
 
         // methods
-        vm.handleButtonClick    = handleButtonClick;
+        vm.handleConfirm        = handleConfirm;
 
         
-        function handleButtonClick () { 
+        function handleConfirm () { 
 
-        	ModalService.confirm_modal({
-                header:'Test Confirmation Header',
-                message:'Are you sure you want to perform this action?'
-            })
-            .then( function (response) {
-                if (response) {
-                    logger.success(response);
-                    // getPost()
-                } else {
-                    logger.info(response);
-                }
-            });
+            var request = {
+                method  : 'DELETE',
+                body    : false,
+                params  : false,
+                hasFile : false,
+                route   : { users:'' },
+                cache_string : ''
+            }; 
+            
+            var content = { 
+                header : "Confirmation Header", 
+                message : "Are you sure you want to perform this action", 
+                prop : '' // item name
+            };
+
+            confirmation(content)
+                .then( function (response) { 
+
+                    if (response) { 
+                        QueryService
+                            .query(request)
+                            .then( function (response) { 
+
+                                vm.items.splice(vm.items.indexOf(item), 1);
+                                logger.success( vm.subTitleHeader + ' removed!');
+                            
+                            }, function (error) {
+                                logger.error(error.data.message);
+                            });
+                    }
+
+                });
 
         }
 
+        function confirmation (content) {
+            return ModalService.confirm_modal(content);
+        }
+
         (function getPost () {
-            var req = {
+            
+            var request = {
                 method  : 'GET', // POST, GET, PUT, DELETE
                 body    : false, // data to be sent
-                token   : false, // if required
-                params  : false, // or { users:1 } will result &users=1
-                hasFile : false, // true if the body has file
+                params  : false, // sample { page:1, limit:10 }
+                hasFile : false, // formData to be sent
+                route   : { users:'' }, // will result /users
                 cache   : true, // false if not needed
-                route   : { users:'' } // will result /users
+                cache_string : 'users' // replace with '' if not needed
             };
 
-           /* https://jsonplaceholder.typicode.com/users*/
             QueryService
-                .query(req)
+                .query(request)
                 .then(function (response) {
+                    console.log(response.data);
                     vm.data = response.data;
                     // logger.success('',response, MESSAGE.success);
                 }, function (err) {

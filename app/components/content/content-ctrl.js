@@ -5,9 +5,9 @@
         .module('app')
         .controller('ContentCtrl', ContentCtrl);
 
-    ContentCtrl.$inject = ['$rootScope', '$state', '$cookies', '$scope', '$stateParams'];
+    ContentCtrl.$inject = ['$rootScope', '$state', '$cookies', '$scope', '$stateParams','ngProgressFactory'];
 
-    function ContentCtrl ($rootScope, $state, $cookies, $scope, $stateParams) {
+    function ContentCtrl ($rootScope, $state, $cookies, $scope, $stateParams, ngProgressFactory) {
         var vm                = this;
 
         $rootScope.back       = back;
@@ -17,8 +17,11 @@
 
         init();
 
-        function init() {
-
+        function init() { 
+            $rootScope.progressbar = ngProgressFactory.createInstance();
+            $rootScope.progressbar.setHeight('4px');
+            $rootScope.progressbar.setColor('#ffccdf');
+            $rootScope.GLOBAL  = GLOBAL;
         };
 
         function rootInit() {
