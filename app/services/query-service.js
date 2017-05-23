@@ -36,7 +36,7 @@
 
             var new_req = GLOBAL.clean_object(request); 
             $rootScope.progressbar.start(); 
-            console.log('here');
+            
             $http(new_req).then( function (response) { 
                     
                 if (request.method == 'GET' && req.cache) {

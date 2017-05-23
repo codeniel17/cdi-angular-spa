@@ -63,7 +63,12 @@
             confirmation(content)
                 .then( function (response) { 
 
+
                     if (response) { 
+                        // temporary code
+                        logger.success( 'Success!');
+                        return;
+                        // temporary code
                         QueryService
                             .query(request)
                             .then( function (response) { 
