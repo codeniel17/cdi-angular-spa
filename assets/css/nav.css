@@ -32,6 +32,7 @@
     margin-bottom: 0px;
     border: 1px solid transparent;
 }
+
 .nav .open>a, 
 .nav .open>a:hover, 
 .nav .open>a:focus {
@@ -65,8 +66,9 @@
 .side-nav ul .active a:hover{
     background: rgba(114, 114, 114, 0.12);
 }
-.huge {
-    font-size: 40px;
+
+.nav-second-level a{
+    color: #999 !important;
 }
 
 @media(min-width:768px) {

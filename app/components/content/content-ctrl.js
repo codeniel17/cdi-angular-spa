@@ -20,7 +20,7 @@
         function init() { 
             $rootScope.progressbar = ngProgressFactory.createInstance();
             $rootScope.progressbar.setHeight('4px');
-            $rootScope.progressbar.setColor('#ffccdf');
+            $rootScope.progressbar.setColor('rgba(0,0,0,0.5)');
             $rootScope.GLOBAL  = GLOBAL;
         };
 

@@ -41,6 +41,9 @@
   font-size: 14px;
 
 }
+.transform-none {
+  text-transform: none !important;
+}
 .materialize .form-control {
 	width: 100%;
 	display: block;

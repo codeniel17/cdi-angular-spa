@@ -29,7 +29,7 @@
 
         $rootScope.progressbar  = ngProgressFactory.createInstance();
         $rootScope.progressbar.setHeight('4px');
-        $rootScope.progressbar.setColor('#ffccdf');
+        $rootScope.progressbar.setColor('rgba(0,0,0,0.3)');
 
         vm.login  = login;
         vm.forgot = forgot;
