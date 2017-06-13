@@ -43,4 +43,4 @@ sample-ctrl.js
 ## Installation
 
 > 1. Clone or download this repository. 
-2. Navigate to the repository's assets folder and run bower install.
+> 2. Navigate to the repository's assets folder and run bower install.

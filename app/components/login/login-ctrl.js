@@ -17,19 +17,20 @@
     ];
 
     function LoginCtrl ($scope, $state, $uibModal, $cookies, $rootScope, QueryService, ngProgressFactory, logger) {
-        var vm         = this;
+        var vm = this;
 
-        vm.admin       = true; 
+        vm.admin = true; 
         vm.showNavItem = true;
-        vm.disable     = false;
+        vm.disable = false;
         vm.isPassword  = false;
-        vm.header      = 'Login';
-        vm.loading     = 'Logging in...';
-        vm.log         = 'Login'; 
+        vm.header = 'Login';
+        vm.loading = 'Logging in...';
+        vm.log = 'Login'; 
+        vm.logo = UTILS.logo;
 
         $rootScope.progressbar  = ngProgressFactory.createInstance();
         $rootScope.progressbar.setHeight('4px');
-        $rootScope.progressbar.setColor('#ffccdf');
+        $rootScope.progressbar.setColor('rgba(0,0,0,0.3)');
 
         vm.login  = login;
         vm.forgot = forgot;
